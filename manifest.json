@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "User Interaction Recorder",
+  "version": "0.1.0",
+  "description": "Record user interactions, generate and edit reports for QA testing and product management",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "downloads"
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/contentScript.js"]
+    }
+  ],
+  "action": {
+    "default_title": "User Interaction Recorder"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
